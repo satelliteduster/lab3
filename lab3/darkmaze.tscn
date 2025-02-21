@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdorev16p1lp3"]
+
+[ext_resource type="PackedScene" uid="uid://weetssie7nob" path="res://maze_bg.tscn" id="1_hpv6y"]
+[ext_resource type="PackedScene" uid="uid://bbwnn0upwtwvd" path="res://path_bg.tscn" id="2_50p2e"]
+
+[node name="maze" type="Node2D"]
+
+[node name="barbara" type="Node2D" parent="."]
+
+[node name="MazeBg" parent="." instance=ExtResource("1_hpv6y")]
+position = Vector2(576, -473)
+
+[node name="PathBg" parent="." instance=ExtResource("2_50p2e")]
+visible = false
+position = Vector2(576, -473)

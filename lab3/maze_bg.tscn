@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://weetssie7nob"]
+
+[ext_resource type="Texture2D" uid="uid://cp6pan25l6iv" path="res://mazeBG.PNG" id="1_rkk44"]
+
+[node name="MazeBg" type="Sprite2D"]
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("1_rkk44")
