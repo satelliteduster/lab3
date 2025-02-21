@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdorev16p1lp3"]
+[gd_scene load_steps=4 format=3 uid="uid://bdorev16p1lp3"]
 
 [ext_resource type="PackedScene" uid="uid://weetssie7nob" path="res://maze_bg.tscn" id="1_hpv6y"]
+[ext_resource type="PackedScene" uid="uid://cs3rjqe54d4n4" path="res://barbara.tscn" id="1_shc3t"]
 [ext_resource type="PackedScene" uid="uid://bbwnn0upwtwvd" path="res://path_bg.tscn" id="2_50p2e"]
 
 [node name="maze" type="Node2D"]
 
-[node name="barbara" type="Node2D" parent="."]
+[node name="barbara" parent="." instance=ExtResource("1_shc3t")]
+position = Vector2(576, 536)
+script = null
 
 [node name="MazeBg" parent="." instance=ExtResource("1_hpv6y")]
 position = Vector2(576, -473)
