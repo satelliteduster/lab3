@@ -1,7 +1,102 @@
-[gd_scene load_steps=2 format=3 uid="uid://weetssie7nob"]
+[gd_scene load_steps=7 format=3 uid="uid://weetssie7nob"]
 
+[ext_resource type="Script" path="res://maze_behavior.gd" id="1_d7cw2"]
 [ext_resource type="Texture2D" uid="uid://cp6pan25l6iv" path="res://mazeBG.PNG" id="1_rkk44"]
+[ext_resource type="PackedScene" uid="uid://dixg4jw7lrbev" path="res://deathbox.tscn" id="2_qviid"]
+[ext_resource type="PackedScene" uid="uid://3fc0p7mdrq8o" path="res://checkpoint.tscn" id="3_auykk"]
+[ext_resource type="Script" path="res://checkpoint.gd" id="4_xqdvy"]
 
-[node name="MazeBg" type="Sprite2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6gqq"]
+size = Vector2(170.069, 99.5205)
+
+[node name="MazeBg" type="StaticBody2D"]
+scale = Vector2(0.73, 0.73)
+script = ExtResource("1_d7cw2")
+
+[node name="MazeBg" type="Sprite2D" parent="."]
+texture_filter = 2
 scale = Vector2(0.73, 0.73)
 texture = ExtResource("1_rkk44")
+
+[node name="right" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(84.9315, 1121.92, 86.3014, 698.63, -697.26, 700, -697.26, 502.74, -893.151, 501.37, -894.521, 482.192, -476.712, 484.931, -475.342, 504.11, -679.452, 502.74, -679.452, 682.192, -308.219, 682.192, -308.219, 305.479, -501.37, 305.479, -502.74, 108.219, -697.26, 108.219, -698.63, 89.0411, -283.562, 87.6712, -283.562, 108.219, -476.712, 108.219, -475.342, 283.562, -87.6712, 284.931, -87.6712, 305.479, -286.301, 304.11, -284.931, 682.192, -109.589, 680.822, -113.699, 482.192, -90.4109, 480.822, -89.0411, 680.822, 304.11, 679.452, 304.11, 697.26, 108.219, 698.63, 109.589, 1069.86, 1067.12, 1069.86, 1061.64, 894.521, 680.822, 894.521, 680.822, 873.973, 1065.75, 873.973, 1068.49, 106.849, 893.151, 108.219, 897.26, 700, 678.082, 698.63, 679.452, 678.082, 873.973, 679.452, 872.603, 108.219, 483.562, 106.849, 482.192, 89.0411, 1067.12, 84.9315, 1061.64, -1067.12, 708.219, -1069.86, 706.849, -904.109, 897.26, -904.109, 898.63, -289.041, 865.753, -287.671, 865.753, -476.712, 502.74, -483.562, 502.74, -282.192, 283.562, -280.822, 283.562, -679.452, 89.0411, -679.452, 89.0411, -698.63, 284.931, -697.26, 286.301, -894.521, 498.63, -897.26, 498.63, -875.342, 306.849, -875.342, 306.849, -306.849, 479.452, -306.849, 473.973, -697.26, 694.521, -701.37, 694.521, -673.973, 502.74, -672.603, 502.74, -506.849, 865.753, -509.589, 865.753, -872.603, 675.342, -872.603, 672.603, -1068.49, 84.9315, -1068.49, 84.9315, -1121.92, 1121.92, -1121.92, 1120.55, 1120.55)
+
+[node name="left" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-86.3014, 1121.92, -87.6712, 875.342, -875.342, 871.233, -875.342, 679.452, -894.521, 679.452, -894.521, 897.26, -116.438, 898.63, -117.808, 1068.49, -1071.23, 1067.12, -1073.97, 308.219, -679.452, 309.589, -679.452, 279.452, -872.603, 279.452, -869.863, -86.3014, -115.068, -82.1918, -110.959, 115.068, 80.8219, 112.329, 83.5616, 504.11, 475.342, 509.589, 476.712, 868.493, 279.452, 868.493, 280.822, 901.37, 506.849, 898.63, 502.74, 506.849, 706.849, 505.479, 700, 280.822, 472.603, 280.822, 473.973, 310.959, 669.863, 309.589, 671.233, 475.342, 312.329, 475.342, 306.849, -84.9315, 898.63, -84.9315, 898.63, -110.959, 702.74, -113.699, 704.11, -309.589, 671.233, -309.589, 672.603, -115.068, 110.959, -112.329, 110.959, -505.479, 80.8219, -502.74, 83.5616, -80.8219, 276.712, -80.8219, 279.452, 473.973, 115.068, 473.973, 112.329, 78.0822, -82.1918, 80.8219, -84.9315, -113.699, -871.233, -110.959, -871.233, -473.973, -512.329, -475.342, -508.219, -310.959, -704.11, -313.699, -701.37, -282.192, -84.9315, -279.452, -87.6712, -309.589, -478.082, -312.329, -479.452, -504.11, -900, -504.11, -905.479, 279.452, -1071.23, 278.082, -1073.97, -676.712, -876.712, -676.712, -876.712, -876.712, -678.082, -876.712, -679.452, -895.89, -900, -900, -900, -698.63, -1073.97, -700, -1071.23, -1069.86, -504.11, -1071.23, -505.479, -700, -700, -698.63, -700, -678.082, -305.479, -676.712, -304.11, -480.822, -90.4109, -479.452, -86.3014, -873.973, 105.479, -873.973, 105.479, -895.89, -306.849, -894.521, -306.849, -871.233, -119.178, -871.233, -113.699, -504.11, -282.192, -504.11, -283.562, -701.37, -480.822, -701.37, -479.452, -1071.23, -86.3014, -1065.75, -86.3014, -1121.92, -1120.55, -1120.55, -1123.29, 1120.55)
+
+[node name="black bg" type="ColorRect" parent="."]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2500.0
+offset_top = -2500.0
+offset_right = 2500.0
+offset_bottom = 2500.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="checkpoint" parent="." instance=ExtResource("3_auykk")]
+position = Vector2(-783.562, 1.36986)
+script = ExtResource("4_xqdvy")
+
+[node name="checkpoint2" parent="." instance=ExtResource("3_auykk")]
+position = Vector2(198.63, 986.301)
+
+[node name="checkpoint3" parent="." instance=ExtResource("3_auykk")]
+position = Vector2(790.411, -394.521)
+
+[node name="exit" type="Area2D" parent="."]
+
+[node name="exitshape" type="CollisionShape2D" parent="exit"]
+position = Vector2(-1.4726, -1170.79)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_l6gqq")
+
+[node name="deathbox" parent="." instance=ExtResource("2_qviid")]
+position = Vector2(-201.37, 983.562)
+
+[node name="deathbox2" parent="." instance=ExtResource("2_qviid")]
+position = Vector2(-195.89, 598.63)
+
+[node name="deathbox3" parent="." instance=ExtResource("2_qviid")]
+position = Vector2(-591.781, 591.781)
+
+[node name="deathbox4" parent="." instance=ExtResource("2_qviid")]
+position = Vector2(-387.671, 194.521)
+
+[node name="deathbox5" parent="." instance=ExtResource("2_qviid")]
+position = Vector2(197.26, 391.781)
+
+[node name="deathbox6" parent="." instance=ExtResource("2_qviid")]
+position = Vector2(979.452, 983.562)
+
+[node name="deathbox7" parent="." instance=ExtResource("2_qviid")]
+position = Vector2(589.041, 395.89)
+
+[node name="deathbox8" parent="." instance=ExtResource("2_qviid")]
+position = Vector2(982.192, 191.781)
+
+[node name="deathbox9" parent="." instance=ExtResource("2_qviid")]
+position = Vector2(-987.671, 193.151)
+
+[node name="deathbox10" parent="." instance=ExtResource("2_qviid")]
+position = Vector2(-595.89, -393.151)
+
+[node name="deathbox11" parent="." instance=ExtResource("2_qviid")]
+position = Vector2(386.301, -401.37)
+
+[node name="deathbox12" parent="." instance=ExtResource("2_qviid")]
+position = Vector2(587.671, -586.301)
+
+[node name="deathbox13" parent="." instance=ExtResource("2_qviid")]
+position = Vector2(-201.37, -586.301)
+
+[node name="deathbox14" parent="." instance=ExtResource("2_qviid")]
+position = Vector2(-990.411, -787.671)
+
+[node name="deathbox15" parent="." instance=ExtResource("2_qviid")]
+position = Vector2(791.781, -986.301)

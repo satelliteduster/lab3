@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://cs3rjqe54d4n4"]
+[gd_scene load_steps=20 format=3 uid="uid://cs3rjqe54d4n4"]
 
+[ext_resource type="Script" path="res://barbara.gd" id="1_n3ot6"]
 [ext_resource type="Texture2D" uid="uid://cjhy0t53hd3j0" path="res://barbarasprites/forward/barbfw-0.png" id="2_gmc5i"]
 [ext_resource type="Texture2D" uid="uid://s2qjx5b8lh3d" path="res://barbarasprites/forward/barbfw-1.png" id="3_c8eac"]
 [ext_resource type="Texture2D" uid="uid://t1oc4q80h6l5" path="res://barbarasprites/forward/barbfw-2.png" id="4_5rpch"]
@@ -113,8 +114,8 @@ size = Vector2(20, 20.4779)
 
 [node name="barbara" type="CharacterBody2D"]
 z_index = 2
-position = Vector2(-300, 0)
 scale = Vector2(0.34, 0.34)
+script = ExtResource("1_n3ot6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j7h5h")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://3fc0p7mdrq8o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amuga"]
+size = Vector2(163.014, 158.904)
+
+[node name="checkpoint" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.684932, 2.61281e-06)
+shape = SubResource("RectangleShape2D_amuga")
+debug_color = Color(0.870073, 0.795765, 0.133622, 0.42)

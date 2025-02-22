@@ -1,7 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbwnn0upwtwvd"]
+[gd_scene load_steps=3 format=3 uid="uid://bbwnn0upwtwvd"]
 
 [ext_resource type="Texture2D" uid="uid://u15n2nn0kkqx" path="res://pathBG.PNG" id="1_erkcx"]
 
-[node name="PathBg" type="Sprite2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oojok"]
+size = Vector2(1027.5, 2242)
+
+[node name="PathBg" type="StaticBody2D"]
+position = Vector2(576, -170)
+
+[node name="PathBg" type="Sprite2D" parent="."]
 scale = Vector2(0.73, 0.73)
 texture = ExtResource("1_erkcx")
+
+[node name="right" type="CollisionShape2D" parent="."]
+position = Vector2(608.25, 0)
+shape = SubResource("RectangleShape2D_oojok")
+
+[node name="left" type="CollisionShape2D" parent="."]
+position = Vector2(-607, -1)
+shape = SubResource("RectangleShape2D_oojok")
+
+[node name="black bg" type="ColorRect" parent="."]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2500.0
+offset_top = -2500.0
+offset_right = 2500.0
+offset_bottom = 2500.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
