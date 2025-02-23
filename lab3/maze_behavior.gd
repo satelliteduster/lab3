@@ -1,18 +1,10 @@
 extends StaticBody2D
 
-
-# Called when the node enters the scene tree for the first time.
-
-#upon loading, start barbara [player] at opening position (576, 536)
-
 func _ready() -> void:
-	pass # Replace with function body.
+	if not $exit.is_connected("body_entered", _on_exit_body_entered):
+			$exit.connect("body_entered", _on_exit_body_entered)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-#when barbara passes through checkpoint [area2d], position is logged and sent to her
-#when barbara enters deathbox [area2d], lower health to 0 and reset barbara's position to last checkpoint
-#when exit [area2d] is hit, load up path_bg
+func _on_exit_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		print("you've reached the end!") # when exit [area2d] is hit
+		SceneManager.transition_to_path(body) # load up path_bg

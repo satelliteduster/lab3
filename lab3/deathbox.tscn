@@ -1,26 +1,21 @@
 [gd_scene load_steps=3 format=3 uid="uid://dixg4jw7lrbev"]
 
-[sub_resource type="GDScript" id="GDScript_kd75t"]
+[sub_resource type="GDScript" id="GDScript_jekn0"]
 script/source = "extends Area2D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	connect(\"body_entered\", _on_body_entered)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-#on entrance, kill player [lower health to zero]
+func _on_body_entered(body): # upon hit, lower hp
+	if body is CharacterBody2D and body.has_method(\"hit\"):
+		body.hit()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2i5v"]
 size = Vector2(163.014, 160.274)
 
 [node name="deathbox" type="Area2D"]
-script = SubResource("GDScript_kd75t")
+script = SubResource("GDScript_jekn0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_f2i5v")

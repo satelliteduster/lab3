@@ -1,12 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdorev16p1lp3"]
+[gd_scene load_steps=5 format=3 uid="uid://bdorev16p1lp3"]
 
 [ext_resource type="PackedScene" uid="uid://weetssie7nob" path="res://maze_bg.tscn" id="1_hpv6y"]
 [ext_resource type="PackedScene" uid="uid://cs3rjqe54d4n4" path="res://barbara.tscn" id="1_shc3t"]
+[ext_resource type="Script" path="res://maze_controller.gd" id="1_trbp3"]
+[ext_resource type="PackedScene" uid="uid://bbwnn0upwtwvd" path="res://path_bg.tscn" id="3_espsn"]
 
 [node name="maze" type="Node2D"]
+script = ExtResource("1_trbp3")
 
 [node name="barbara" parent="." instance=ExtResource("1_shc3t")]
 position = Vector2(576, 536)
 
-[node name="MazeBg" parent="." instance=ExtResource("1_hpv6y")]
+[node name="CurrentLevel" type="Node2D" parent="."]
+
+[node name="MazeBg" parent="CurrentLevel" instance=ExtResource("1_hpv6y")]
 position = Vector2(576, -170)
+
+[node name="PathBg" parent="CurrentLevel" instance=ExtResource("3_espsn")]
+z_index = -1

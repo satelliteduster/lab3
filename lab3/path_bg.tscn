@@ -7,6 +7,7 @@ size = Vector2(1027.5, 2242)
 
 [node name="PathBg" type="StaticBody2D"]
 position = Vector2(576, -170)
+scale = Vector2(0.73, 0.73)
 
 [node name="PathBg" type="Sprite2D" parent="."]
 scale = Vector2(0.73, 0.73)

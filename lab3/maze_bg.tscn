@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://weetssie7nob"]
+[gd_scene load_steps=6 format=3 uid="uid://weetssie7nob"]
 
 [ext_resource type="Script" path="res://maze_behavior.gd" id="1_d7cw2"]
 [ext_resource type="Texture2D" uid="uid://cp6pan25l6iv" path="res://mazeBG.PNG" id="1_rkk44"]
 [ext_resource type="PackedScene" uid="uid://dixg4jw7lrbev" path="res://deathbox.tscn" id="2_qviid"]
 [ext_resource type="PackedScene" uid="uid://3fc0p7mdrq8o" path="res://checkpoint.tscn" id="3_auykk"]
-[ext_resource type="Script" path="res://checkpoint.gd" id="4_xqdvy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l6gqq"]
 size = Vector2(170.069, 99.5205)
@@ -41,7 +40,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="checkpoint" parent="." instance=ExtResource("3_auykk")]
 position = Vector2(-783.562, 1.36986)
-script = ExtResource("4_xqdvy")
 
 [node name="checkpoint2" parent="." instance=ExtResource("3_auykk")]
 position = Vector2(198.63, 986.301)
@@ -53,7 +51,6 @@ position = Vector2(790.411, -394.521)
 
 [node name="exitshape" type="CollisionShape2D" parent="exit"]
 position = Vector2(-1.4726, -1170.79)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_l6gqq")
 
 [node name="deathbox" parent="." instance=ExtResource("2_qviid")]
@@ -100,3 +97,5 @@ position = Vector2(-990.411, -787.671)
 
 [node name="deathbox15" parent="." instance=ExtResource("2_qviid")]
 position = Vector2(791.781, -986.301)
+
+[connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]

@@ -1,14 +1,12 @@
 extends Area2D
 
+var check_reached = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	connect("body_entered", _on_body_entered) # connecting functiom
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-#on entrance, save location (x,y) [player position]
-#when player dies, send player back here
+func _on_body_entered(body): # checkpoint code
+	if body is CharacterBody2D and not check_reached: # prevents repeats
+		body.save_checkpoint(global_position)
+		check_reached = true # character has passed checkpoint
+		print("checkpoint reached")

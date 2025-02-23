@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://3fc0p7mdrq8o"]
+[gd_scene load_steps=3 format=3 uid="uid://3fc0p7mdrq8o"]
+
+[ext_resource type="Script" path="res://checkpoint.gd" id="1_xu7ph"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amuga"]
 size = Vector2(163.014, 158.904)
 
 [node name="checkpoint" type="Area2D"]
+script = ExtResource("1_xu7ph")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.684932, 2.61281e-06)
